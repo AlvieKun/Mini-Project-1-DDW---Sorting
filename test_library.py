@@ -17,15 +17,19 @@ def test_create_string():
 
 def test_comb_sort_ideas():
     ideas = [
-        {"idea": "Campus Food Finder", "category": "Student Life", "rating": 3.5},
-        {"idea": "Accessibility Route Planner", "category": "Social Impact", "rating": 5.0},
-        {"idea": "AI Study Planner", "category": "Education", "rating": 4.5},
-        {"idea": "Roommate Chore App", "category": "Home", "rating": 5.0},
+        {"idea": "Campus Food Finder", "category": "Student Life", "description": ""},
+        {"idea": "accessibility Route Planner", "category": "Social Impact", "description": ""},
+        {"idea": "AI Study Planner", "category": "Education", "description": ""},
+        {"idea": "Smart Recycling Bin", "category": "Sustainability", "description": ""},
+        {"idea": "ai study planner", "category": "Duplicate", "description": "same idea name"},
     ]
     output = comb_sort_ideas(ideas)
-    assert output == [
-        {"idea": "Accessibility Route Planner", "category": "Social Impact", "rating": 5.0},
-        {"idea": "Roommate Chore App", "category": "Home", "rating": 5.0},
-        {"idea": "AI Study Planner", "category": "Education", "rating": 4.5},
-        {"idea": "Campus Food Finder", "category": "Student Life", "rating": 3.5},
+    assert [idea["idea"] for idea in output] == [
+        "accessibility Route Planner",
+        "AI Study Planner",
+        "ai study planner",
+        "Campus Food Finder",
+        "Smart Recycling Bin",
     ]
+    assert output[1]["category"] == "Education"
+    assert output[2]["category"] == "Duplicate"

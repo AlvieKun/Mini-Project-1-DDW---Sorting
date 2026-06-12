@@ -27,9 +27,9 @@ def my_sort(array):
 
 
 def comb_sort_ideas(ideas: list[dict]) -> list[dict]:
-    def sort_key(idea_with_index: tuple[dict, int]) -> tuple[int, int]:
+    def sort_key(idea_with_index: tuple[dict, int]) -> tuple[str, int]:
         idea, original_index = idea_with_index
-        return -float(idea.get("rating", 0)), original_index
+        return str(idea.get("idea", "")).lower(), original_index
 
     sorted_ideas = [(idea, index) for index, idea in enumerate(ideas)]
     gap = len(sorted_ideas)
