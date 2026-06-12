@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Idea Ranker - UI Mockup Viewer</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d7deea;
+      --accent: #2454d6;
+      --accent-soft: #e9efff;
+      --green-soft: #edfdf6;
+      --green-line: #bcebd7;
+      --shadow: 0 16px 36px rgba(18, 32, 59, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 22px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 40px;
+      letter-spacing: 0;
+    }
+
+    h2, h3 {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .note {
+      max-width: 430px;
+      border: 1px solid var(--green-line);
+      background: var(--green-soft);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: #145c43;
+      font-weight: 700;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav {
+      padding: 14px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .tab {
+      width: 100%;
+      display: block;
+      text-align: left;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 9px;
+      cursor: pointer;
+      background: #f8fafd;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 800;
+    }
+
+    .tab span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .tab.active {
+      color: #143c95;
+      background: var(--accent-soft);
+      border-color: #b9c9ff;
+    }
+
+    .viewer {
+      padding: 18px;
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+
+    .mockup-title {
+      margin-bottom: 6px;
+      font-size: 24px;
+    }
+
+    .status-pill {
+      border-radius: 999px;
+      background: #f2f4f7;
+      color: #344054;
+      padding: 7px 10px;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .browser-frame {
+      border: 1px solid #c7cfdd;
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+    }
+
+    .browser-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      background: #f0f3f8;
+      border-bottom: 1px solid #d6dce8;
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #c7ceda;
+    }
+
+    .url {
+      margin-left: 6px;
+      flex: 1;
+      background: white;
+      border: 1px solid #d2d8e4;
+      border-radius: 999px;
+      color: #667085;
+      font-size: 13px;
+      padding: 7px 11px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 760px;
+      border: 0;
+      background: white;
+    }
+
+    .helper {
+      margin-top: 20px;
+      padding: 18px;
+    }
+
+    .helper ol {
+      color: #344054;
+      margin: 0;
+      padding-left: 22px;
+      line-height: 1.7;
+    }
+
+    .visual-note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #fff8e6;
+      border: 1px solid #f3d38a;
+      color: #7a4d00;
+      font-weight: 800;
+    }
+
+    @media (max-width: 900px) {
+      header, .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        position: static;
+      }
+
+      iframe {
+        height: 680px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>Project Idea Ranker — UI Mockup Viewer</h1>
+        <p>This viewer is only for presentation screenshots. It is not part of the final Streamlit app.</p>
+      </div>
+      <div class="note">The actual implemented app remains in Streamlit. These are static design mockups.</div>
+    </header>
+
+    <div class="layout">
+      <nav class="panel nav" aria-label="Mockup navigation">
+        <button class="tab active" data-file="iteration_1_basic_form.html" data-title="Iteration 1: Basic Form" data-description="Basic form layout. Simple and functional, but not very visual.">
+          Iteration 1: Basic Form
+          <span>Early wireframe</span>
+        </button>
+        <button class="tab" data-file="iteration_2_star_rating_cards.html" data-title="Iteration 2: Star Rating Cards" data-description="Star rating card layout. More intuitive because users understand ratings quickly.">
+          Iteration 2: Star Rating Cards
+          <span>More visual rating input</span>
+        </button>
+        <button class="tab" data-file="iteration_3_comparison_dashboard.html" data-title="Iteration 3: Comparison Dashboard" data-description="Dashboard comparison layout. Strong before/after comparison and clearer ranking.">
+          Iteration 3: Comparison Dashboard
+          <span>Before/after sorting</span>
+        </button>
+        <button class="tab" data-file="final_ui_direction.html" data-title="Final UI Direction" data-description="Combines the clearest input flow, star-rating interaction, and ranking output.">
+          Final UI Direction
+          <span>Polished concept</span>
+        </button>
+      </nav>
+
+      <section class="panel viewer">
+        <div class="mockup-header">
+          <div>
+            <h2 class="mockup-title" id="mockupTitle">Iteration 1: Basic Form</h2>
+            <p id="mockupDescription">Basic form layout. Simple and functional, but not very visual.</p>
+          </div>
+          <div class="status-pill">Static HTML Preview</div>
+        </div>
+
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <div class="url" id="mockupUrl">iteration_1_basic_form.html</div>
+          </div>
+          <iframe id="mockupFrame" title="UI mockup preview" src="iteration_1_basic_form.html"></iframe>
+        </div>
+
+        <section class="panel helper">
+          <h3>Screenshot Helper</h3>
+          <ol>
+            <li>Open this file in your browser.</li>
+            <li>Click each mockup tab.</li>
+            <li>Take screenshots and place them on Miro.</li>
+            <li>Label them as UI Iteration 1, UI Iteration 2, UI Iteration 3, and Final Direction.</li>
+          </ol>
+          <div class="visual-note">The actual implemented app remains in Streamlit. These are static design mockups.</div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const frame = document.getElementById("mockupFrame");
+    const title = document.getElementById("mockupTitle");
+    const description = document.getElementById("mockupDescription");
+    const url = document.getElementById("mockupUrl");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((item) => item.classList.remove("active"));
+        tab.classList.add("active");
+        frame.src = tab.dataset.file;
+        title.textContent = tab.dataset.title;
+        description.textContent = tab.dataset.description;
+        url.textContent = tab.dataset.file;
+      });
+    });
+  </script>
+</body>
+</html>

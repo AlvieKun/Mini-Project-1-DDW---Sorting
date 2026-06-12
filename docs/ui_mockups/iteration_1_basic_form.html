@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iteration 1 - Basic Form Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
+    main {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 24px;
+      background: white;
+      border: 1px solid #ccc;
+    }
+    .note {
+      padding: 10px 12px;
+      background: #fff8d7;
+      border: 1px solid #d8c77b;
+      margin-bottom: 18px;
+    }
+    h1, h2 {
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin: 12px 0 4px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      border: 1px solid #999;
+      border-radius: 2px;
+      background: #fff;
+    }
+    .buttons {
+      margin: 16px 0 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 8px 14px;
+      border: 1px solid #777;
+      background: #eee;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 26px;
+    }
+    th, td {
+      border: 1px solid #bbb;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background: #e8e8e8;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="note">Iteration 1: Basic form layout — simple but not very visual.</div>
+    <h1>Project Idea Ranker</h1>
+
+    <section>
+      <h2>Add Project Idea</h2>
+      <label for="idea">Project idea</label>
+      <input id="idea" value="Student Marketplace">
+
+      <label for="category">Category</label>
+      <select id="category">
+        <option>Education</option>
+        <option>Social Impact</option>
+        <option>Sustainability</option>
+        <option>Student Life</option>
+      </select>
+
+      <label for="rating">Rating</label>
+      <select id="rating">
+        <option>5.0</option>
+        <option>4.5</option>
+        <option selected>4.0</option>
+        <option>3.5</option>
+        <option>3.0</option>
+      </select>
+
+      <div class="buttons">
+        <button>Add Idea</button>
+        <button>Sort by Rating</button>
+        <button>Reset</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>Original Ideas</h2>
+      <table>
+        <thead><tr><th>Idea</th><th>Category</th><th>Rating</th></tr></thead>
+        <tbody>
+          <tr><td>Accessibility Route Planner</td><td>Social Impact</td><td>5.0</td></tr>
+          <tr><td>AI Study Planner</td><td>Education</td><td>4.5</td></tr>
+          <tr><td>Smart Recycling Bin</td><td>Sustainability</td><td>4.0</td></tr>
+          <tr><td>Campus Food Finder</td><td>Student Life</td><td>3.5</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Sorted Ideas</h2>
+      <table>
+        <thead><tr><th>Idea</th><th>Category</th><th>Rating</th></tr></thead>
+        <tbody>
+          <tr><td>Accessibility Route Planner</td><td>Social Impact</td><td>5.0</td></tr>
+          <tr><td>AI Study Planner</td><td>Education</td><td>4.5</td></tr>
+          <tr><td>Smart Recycling Bin</td><td>Sustainability</td><td>4.0</td></tr>
+          <tr><td>Campus Food Finder</td><td>Student Life</td><td>3.5</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

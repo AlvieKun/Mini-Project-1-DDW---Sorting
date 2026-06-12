@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Final UI Direction - Project Idea Ranker</title>
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --ink: #111827;
+      --muted: #667085;
+      --panel: #ffffff;
+      --line: #d8dee8;
+      --accent: #2454d6;
+      --accent-soft: #eaf0ff;
+      --gold: #e79c13;
+      --success: #10815f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 22px;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 44px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .callout {
+      background: var(--accent-soft);
+      border: 1px solid #c8d7ff;
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #183b8f;
+      max-width: 420px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 12px 28px rgba(18, 32, 59, 0.07);
+    }
+    label {
+      display: block;
+      margin: 14px 0 6px;
+      font-weight: 750;
+    }
+    input, select {
+      width: 100%;
+      padding: 11px;
+      border-radius: 9px;
+      border: 1px solid var(--line);
+      font: inherit;
+      background: #fff;
+    }
+    .star-picker {
+      text-align: center;
+      padding: 14px 10px 8px;
+      border: 1px dashed #c8cfda;
+      border-radius: 10px;
+      background: #fbfcff;
+      margin-top: 8px;
+    }
+    .stars {
+      color: var(--gold);
+      font-size: 42px;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    .rating {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 12px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      background: #e9edf5;
+      color: var(--ink);
+    }
+    button.primary {
+      background: var(--accent);
+      color: #fff;
+      grid-column: span 2;
+    }
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 11px;
+      text-align: left;
+      border-bottom: 1px solid #edf0f5;
+    }
+    th {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .ranking {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .rank-row {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: white;
+    }
+    .rank-row:first-child {
+      border-color: #ffd36a;
+      background: #fffaf0;
+    }
+    .rank-num {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #fff0c2;
+      color: #8a5a00;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+    .category {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+    .rank-stars {
+      color: var(--gold);
+      white-space: nowrap;
+      font-weight: 800;
+    }
+    .explain {
+      margin-top: 20px;
+      color: #344054;
+      background: #f0fdf9;
+      border: 1px solid #bbf7d0;
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    @media (max-width: 880px) {
+      .hero, .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Project Idea Ranker</h1>
+        <p>Rate ideas out of 5 stars, then sort them from highest-rated to lowest-rated with Comb Sort.</p>
+      </div>
+      <div class="callout">This UI was chosen because it makes the sorting purpose obvious: higher-rated project ideas move to the top.</div>
+    </section>
+
+    <div class="grid">
+      <aside class="panel">
+        <h2>Add Idea</h2>
+        <label>Project name</label>
+        <input value="Peer Tutoring Hub">
+        <label>Category</label>
+        <select>
+          <option>Education</option>
+          <option>Student Life</option>
+          <option>Social Impact</option>
+          <option>Sustainability</option>
+        </select>
+        <label>Visual rating</label>
+        <div class="star-picker">
+          <div class="stars">★★★★½</div>
+          <div class="rating">4.5 out of 5 stars</div>
+        </div>
+        <div class="buttons">
+          <button class="primary">Add Idea</button>
+          <button>Sort by Rating</button>
+          <button>Reset</button>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div class="panel">
+          <h2>Original Ideas</h2>
+          <table>
+            <thead><tr><th>Idea</th><th>Category</th><th>Rating</th></tr></thead>
+            <tbody>
+              <tr><td>Accessibility Route Planner</td><td>Social Impact</td><td>5.0</td></tr>
+              <tr><td>AI Study Planner</td><td>Education</td><td>4.5</td></tr>
+              <tr><td>Smart Recycling Bin</td><td>Sustainability</td><td>4.0</td></tr>
+              <tr><td>Campus Food Finder</td><td>Student Life</td><td>3.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <h2>Sorted Ideas / Ranking</h2>
+          <div class="ranking">
+            <article class="rank-row">
+              <div class="rank-num">1</div>
+              <div><strong>Accessibility Route Planner</strong><div class="category">Social Impact</div></div>
+              <div class="rank-stars">★★★★★ 5.0</div>
+            </article>
+            <article class="rank-row">
+              <div class="rank-num">2</div>
+              <div><strong>AI Study Planner</strong><div class="category">Education</div></div>
+              <div class="rank-stars">★★★★½ 4.5</div>
+            </article>
+            <article class="rank-row">
+              <div class="rank-num">3</div>
+              <div><strong>Smart Recycling Bin</strong><div class="category">Sustainability</div></div>
+              <div class="rank-stars">★★★★☆ 4.0</div>
+            </article>
+            <article class="rank-row">
+              <div class="rank-num">4</div>
+              <div><strong>Campus Food Finder</strong><div class="category">Student Life</div></div>
+              <div class="rank-stars">★★★½☆ 3.5</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="explain">This is a static mockup for presentation only. It shows the final design direction, while the actual working version remains the Streamlit app.</div>
+  </main>
+</body>
+</html>
