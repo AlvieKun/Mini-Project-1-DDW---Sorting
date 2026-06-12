@@ -26,10 +26,21 @@ def my_sort(array):
     return array
 
 
-def comb_sort_ideas(ideas: list[dict]) -> list[dict]:
-    def sort_key(idea_with_index: tuple[dict, int]) -> tuple[str, int]:
+def comb_sort_ideas(ideas: list[dict], sort_mode: str = "alphabetical") -> list[dict]:
+    def sort_key(idea_with_index: tuple[dict, int]) -> tuple:
         idea, original_index = idea_with_index
-        return str(idea.get("idea", "")).lower(), original_index
+        name = str(idea.get("idea", "")).strip().casefold()
+        score = float(idea.get("score", 0))
+
+        if sort_mode == "score_high":
+            return -score, original_index
+        if sort_mode == "score_low":
+            return score, original_index
+        if sort_mode == "score_then_alphabetical":
+            return -score, name, original_index
+        if sort_mode == "alphabetical_then_score":
+            return name, -score, original_index
+        return name, original_index
 
     sorted_ideas = [(idea, index) for index, idea in enumerate(ideas)]
     gap = len(sorted_ideas)
